@@ -10,15 +10,16 @@ public class EmailGenerator {
 		PrintList();
 	}
 	public boolean inArray(String s)
-	{
+	{	
+		String lowercased = s.toLowerCase();
 		CreateList();
-		boolean result = Arrays.stream(emaillist).anyMatch(s::equals);
+		boolean result = Arrays.stream(emaillist).anyMatch(lowercased::equals);
 		
 	    return result;  
 
 	}
 	private void CreateList() {
-	emaillist[0]="JohnDoe@yahoo.com";
+	emaillist[0]="johndoe@yahoo.com";
 	emaillist[1]="legend345@gmail.com";	
 	emaillist[2]="djones@eru.edu";
 	emaillist[3]="melvin.gonzales@yahoo.com";

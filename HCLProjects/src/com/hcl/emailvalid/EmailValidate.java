@@ -18,22 +18,22 @@ public class EmailValidate {
 		while (true) {
 			System.out.println("\nPlease type in a valid email address to verify if it is in this array.");
 			System.out.println("Type LIST to display the email array.");
-			System.out.println("\nEmail in array example: JohnDoe@yahoo.com");
+			System.out.println("\nEmail in array example: johndoe@yahoo.com");
 			
 			emailinput = input.nextLine();
-
+			
 			if (validator.isValid(emailinput) == true) {
-				System.out.println("Valid email address");
+				System.out.println(emailinput+" is a Valid email address");
 				if (getemaillist.inArray(emailinput)) {
-					System.out.println("This email address is in the array");
+					System.out.println("The email address: "+emailinput+ " is in the array");
 				} else {
-					System.out.println("This email is not in the array");
+					System.out.println("The email address: "+emailinput+" is not in the array");
 				}
 			} else if (emailinput.equals("LIST") || emailinput.equals("list") || emailinput.equals("List")) {
 				getemaillist.GetEmailList();
 				continue;
 			} else {
-				System.out.println("Not a valid email address");
+				System.out.println(emailinput+" is not a valid email address");
 			}
 
 			System.out.println("\nWould you like to check another email?");
