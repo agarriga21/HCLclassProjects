@@ -1,12 +1,22 @@
 package com.hcl.lis;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class LongIncSubMain {
 
 	public static void main(String[] args) {
-		int n = 100;
+		int n = 10;
 		SequenceHandler sh = new SequenceHandler();
-		int [] mySequence = sh.CreateArray(n);
-		System.out.println(mySequence[0]);
+		ArrayList<Integer> mySequence = sh.CreateArrayList(n);
+		
+		
+		
+		ArrayList<Integer> mySub =sh.SubArray(mySequence, n,0);
+		
+		System.out.println(mySequence);
+		//System.out.println(mySub);
+		sh.Compare(mySequence, n);
 		
 	}
 
