@@ -70,14 +70,19 @@ public void Compare(ArrayList<Integer> subseq, int n) {
 		//}
 	
 }
-
-	System.out.println(maxSizeFinal);
+int x=0;
+	System.out.println("\nThe longest increasing subsequence(s) are the length: "+maxSizeFinal);
+	System.out.println("\nThe subsequence(s) with this length are:");
 	for (i = 0; (n) > i; i++ ) {
 		if(maxSizeFinal==subList.get(i).size()) {
 			System.out.println(subList.get(i));
+		x++;
 		}
 			
 		}
+	if(x==0) {
+		System.out.println("None");
+	}
 }
 }
 
