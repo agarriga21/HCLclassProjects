@@ -42,7 +42,7 @@ public class Calculator {
 			
 			
 			
-			System.out.println("Enter you second number or decimal");
+			System.out.println("Enter you second number or decimal:");
 
 			while (true) {
 
