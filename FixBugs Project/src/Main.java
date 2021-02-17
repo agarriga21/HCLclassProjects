@@ -63,7 +63,7 @@ public class Main {
 				System.out.println(expenses + "\n");
 				System.out.println("All your expenses are erased!\n");
 			} else {
-				System.out.println("Erasing cancelled");
+				System.err.println("Erasing cancelled\n");
 			}
 			optionsSelection(expenses);
 			break;
@@ -101,10 +101,37 @@ public class Main {
 
 	}
 
-	private static void searchExpenses(ArrayList<Integer> arrayList) {
-		int leng = arrayList.size();
+	private static void searchExpenses(ArrayList<Integer> expenses) {
+		 int leng = expenses.size();
+		 int count =0;
 		System.out.println("Enter the expense you need to search:\t");
-		// Complete the method
+		while(true) {
+		try {
+			int expenseSearch = sc.nextInt();
+			if(leng==0) {
+				System.out.println("Your expenditures list is empty. \n");
+				break;
+			}
+			for(int i : expenses) {
+				if(i == expenseSearch) {
+					System.out.println(expenseSearch+" was found in your expenditures list.\n");
+					break;
+				}
+				else if(count >= leng) {
+					System.out.println(expenseSearch+" was not found in your expenditures list.\n");
+					break;
+				
+				}
+			}
+
+			
+break;
+		} catch (InputMismatchException e) {
+			System.err.println("Not a valid integer, try again.");
+			sc.next();
+		}
+		}
+		
 	}
 
 	private static ArrayList<Integer> sortExpenses(ArrayList<Integer> expenses) {
