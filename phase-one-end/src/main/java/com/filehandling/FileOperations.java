@@ -1,6 +1,8 @@
 package com.filehandling;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class FileOperations {
 	public void CreateFile(String fileName, int user) {
@@ -43,4 +45,32 @@ public class FileOperations {
 		}
 
 	}
+
+	public void SearchFile(String fileName, int user) {
+		File getNames = new File(System.getProperty("user.dir")+"\\ProjectFiles\\");
+		
+		ArrayList<String> names = new ArrayList<String>(Arrays.asList(getNames.list()));
+		 int leng = names.size();
+		int count =1;
+		if(leng==0) {
+			System.out.println(fileName+" was not found in your user file list.");
+			
+		}
+			
+			for(String s : names) {
+				if(s.equals(fileName+user+".txt")) {
+					System.out.println(fileName+" was found in your user file list.");
+					break;
+				}
+				else if(count >= leng) {
+					System.out.println(fileName+" was not found in your user file list.");
+					break;
+				
+				}
+				count++;
+			}
+
+}
+
+	
 }

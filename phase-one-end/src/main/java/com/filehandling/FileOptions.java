@@ -56,7 +56,10 @@ public void FileOptionPrint(int user) {
 		                this.FileOptionPrint(user);
 	                break;
 	            case "search":
-	            	
+	            	System.out.println("Please type the name of the file you would like to search");
+	            	fileName=this.GetInput();
+		                fo.SearchFile(fileName, user);
+		                this.FileOptionPrint(user);
 	                break;
 	                
 	            case "back":
