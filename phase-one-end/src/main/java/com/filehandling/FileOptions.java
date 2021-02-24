@@ -12,6 +12,7 @@ public class FileOptions {
 	 private String selectedOption;
 	 private String instructions = "\nUser File menu: Please type one of the following commands below:";
 	 private boolean lowerCase;
+	 private String fileName;
 	 
 	 public void FileOptionAdd(int user) {
 		 options.add("add - add a new file"); 
@@ -38,17 +39,24 @@ public void FileOptionPrint(int user) {
 	 public void FileOptionSwitch(int user)
 	    {
 		 selectedOption = this.GetInput();
-		 
+		 FileOperations fo = new FileOperations();
 	        switch(selectedOption) {
 
 	            case "add":
+	            	System.out.println("Please type the name of the file you would like to add");
+	            	fileName=this.GetInput();
+	                fo.CreateFile(fileName, user);
 	                
+	                this.FileOptionPrint(user);
 	                break;
 	            case "delete":
-	              
+	            	System.out.println("Please type the name of the file you would like to delete");
+	            	fileName=this.GetInput();
+		                fo.DeleteFile(fileName, user);
+		                this.FileOptionPrint(user);
 	                break;
 	            case "search":
-	                
+	            	
 	                break;
 	                
 	            case "back":
