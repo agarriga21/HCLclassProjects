@@ -21,7 +21,7 @@ public class FileOptions {
 		 options.add("back - go back to the main menu");
 		options.add("close - close out the program");
 		 //options.add("case - toggle case sensitivity");
-		 System.out.println("Welcome"+user);
+		 System.out.println("Welcome user "+user);
 		this.FileOptionPrint(user);
 	 
 	 }

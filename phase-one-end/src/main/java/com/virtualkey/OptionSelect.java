@@ -5,6 +5,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.filehandling.FileOptions;
+import com.filehandling.SortFiles;
 
 public class OptionSelect {
 	private Scanner sc;
@@ -14,7 +15,7 @@ public class OptionSelect {
 	 private int ID;
 	 public void OptionAddText() {
 		 options.add("id - input your user ID"); 
-		 //options.add("sort - sort files");
+		 options.add("sort - sort files");
 		 options.add("close - close out the program");
 	 
 		this.OptionPrint();
@@ -38,12 +39,15 @@ public void OptionPrint() {
 	        switch(selectedOption) {
 
 	            case "id":
-	                ID =this.GetID();
+	               System.out.println("Please type the user id to manage user specific files");
+	            	ID =this.GetID();
 	                FileOptions fo = new FileOptions();
 	                fo.FileOptionAdd(ID);
 	                break;
-	            case "new":
-	              
+	            case "sort":
+	            	SortFiles sf = new SortFiles();
+	              sf.FileSorter();
+	              this.OptionPrint();
 	                break;
 	            case "close":
 		              ExitProgram close = new ExitProgram();
