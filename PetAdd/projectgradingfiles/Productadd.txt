@@ -1,0 +1,31 @@
+-My add new product project uses the MYSQL database pets provided by Tim Fox. This project also utilizes Tomcat version 9 and Hibernate.
+
+-The program uses four webpages, one as the main menu with two links, the first link allows the user to view the current product list and the other link goes to the page to add a new product. The fourth page is the success or fail of adding the new product.
+
+-A valid product add will display a success message and the pet information of the added pet.
+
+-An invalid product add will show a fail message along with what made the addition invalid. Thise could be either or all of the following: Invalid name entry, Invalid color entry, Invalid price entry. 
+
+-name and color must not be empty to be valid and the price must be a number which can have decimals.
+
+-The program runs on MYSQL port 3306 and http://localhost:8080/HibernateConfig
+
+Source code:
+https://github.com/agarriga21/HCLclassProjects/tree/master/PetSale/src/main
+
+MYSQL:
+CREATE DATABASE pets;
+create user 'springuser'@'%' identified by 'ThePassword'; -- Creates the user springuser
+grant all on pets.* to 'springuser'@'%'; -- Gives all privileges to the new user on the newly created database
+CREATE TABLE pets.products (
+id  int(11) AUTO_INCREMENT,
+name VARCHAR(256),
+color VARCHAR(256),
+price DECIMAL(19,2),
+PRIMARY KEY (`id`)
+);
+
+INSERT INTO pets.products (name,color,price) VALUES ("Bird", "Chartreuse", 200.00);
+INSERT INTO pets.products (name,color,price) VALUES ("Hamster", "Brown", 30.00);
+INSERT INTO pets.products (name,color,price) VALUES ("Cayman", "Neon Pink", 500.00);
+INSERT INTO pets.products (name,color,price) VALUES ("Tarantula", "Red", 100.00);

@@ -1,0 +1,7 @@
+https://github.com/agarriga21/HCLclassProjects/tree/master/PetAdd
+
+WebContent contains jsp files
+
+src/main contains .java files
+
+projectgradingfiles had writeup and photos
