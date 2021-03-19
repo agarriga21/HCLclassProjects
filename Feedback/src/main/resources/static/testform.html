@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script type= "text/javascript"src="testform.js">
+</script>
+
+</head>
+
+<body>
+
+<h2>Feedback Test Form</h2>
+<form onsubmit="SubmitTestForm()">
+
+  <label for="user">Name:</label><br>
+  <input type="text" id="user" name="user" required><br><br>
+  <label for="comments">Comment:</label><br>
+  <input type="text" id="comments" name="comments" required><br><br>
+  <label for="rating">Rating:</label><br>
+  <input type="number" id="rating" name="rating" required><br><br>
+  <input type="submit" value="Submit" >
+
+</form> 
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+</body>
+</html>
