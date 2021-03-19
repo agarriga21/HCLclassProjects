@@ -1,6 +1,8 @@
 package com.example.Feedback.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,8 +34,9 @@ public class FeedbackController {
 			newFeedback.getId();
 		}
 		else {
-			newFeedback.setComments("Error, invalid inputs. This feedback is not added to database");
+			newFeedback.setComments("Your input was invalid, this feedback was not added to the database.");
 		}
+	
 	return newFeedback;
 	}
 	
