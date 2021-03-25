@@ -8,6 +8,17 @@
 <title>Login Success</title>
 </head>
 <body>
-<p>Login Success</p>
+ <div align="center">
+<p>You are currently logged in!</p>
+ <h3>So you want to go to the main page logged in?</h3>
+<a href="/">
+      <input type="submit" value="Main Page"/>
+     </a>
+     <h3>Logout option:</h3>
+<form action="/logout" method="post">
+    <input type="hidden"  name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    <input type="submit" value="Logout" />
+</form>
+</div>
 </body>
 </html>
