@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>New User</title>
+<title>index</title>
 </head>
 <body>
 

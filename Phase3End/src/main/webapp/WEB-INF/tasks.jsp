@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Tasks</title>
 <style>
 table, th, td {
   border: 1px solid black;
@@ -15,7 +15,7 @@ table, th, td {
 </style>
 </head>
 <body>
-<h2>Welcome to the Task Manager</h2>
+<h2>Welcome to the Task Menu</h2>
 <table>
 <tr>
   <th>Task Name</th>
@@ -38,6 +38,17 @@ table, th, td {
         </tr>
     </c:forEach>
 </table>
+<form action="/create/${userid}" method="get">
+    
+  <h6> </h6>
+ 
 
+      <input type="submit" value="Create New Task"/>
+    
+</form>
+<h6> </h6>
+ <a href="/login">
+      <input type="submit" value="Logout"/>
+     </a>
 </body>
 </html>

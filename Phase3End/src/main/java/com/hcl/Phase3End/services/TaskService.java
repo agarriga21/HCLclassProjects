@@ -54,4 +54,9 @@ public class TaskService {
 			Task task = taskRepository.findById(id).get();
 			taskRepository.delete(task);
 		}
+	 public void createTask(Task task) {
+			
+		 
+		 taskRepository.save(task);
+		}
 }

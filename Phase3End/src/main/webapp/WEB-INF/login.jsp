@@ -23,7 +23,11 @@
    <h6> </h6>
  <input type="submit" value="Submit"><br>
 </form>
-
+<h6> </h6>
+ <a href="/">
+      <input type="submit" value="Main Menu"/>
+     </a>
+     <h6> </h6>
 <h1><font color="red">${errorMessage}</font></h1>
 </div>
 </body>
