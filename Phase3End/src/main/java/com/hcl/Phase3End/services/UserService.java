@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import com.hcl.Phase3End.entities.User;
 import com.hcl.Phase3End.exceptions.UserNotFoundException;
 import com.hcl.Phase3End.repositories.UserRepository;
@@ -23,7 +24,25 @@ public class UserService {
 	
 	@Autowired
 	 private UserRepository userRepository;
-	
+	 public User AddUser(String username,String password,String email) {
+		 
+		 
+		 if(userRepository.findByUsername(username)!=null) {
+			 return null;
+		 }
+		 else {
+		 User newUser = new User();
+		 newUser.setUserName(username);
+			newUser.setPassword(password);
+			newUser.setEmail(email);
+		
+	        	userRepository.save(newUser);
+	    	return newUser;
+		 }
+	        
+	    }
+		 
+	    
 
     public User GetUserByName(String username) {
         User foundUser = userRepository.findByUsername(username);

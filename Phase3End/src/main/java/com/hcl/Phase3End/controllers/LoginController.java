@@ -4,7 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,13 +33,14 @@ public class LoginController {
 
 
     @GetMapping("/login")
-    public String showLogin(ModelMap map) {
+    public String showLogin(ModelMap model) {
         return "login";
     }
 
     @GetMapping("/register")
-    public String showReg(ModelMap map) {
-        return "register";
+    public String showReg(ModelMap model) {
+        model.addAttribute("user", new User());
+    	return "register";
     }
     
 	@PostMapping("/login")
@@ -55,36 +58,35 @@ public class LoginController {
 		
 		   
 		
-        return "usermenu";}
+        return "redirect:/tasks/"+user.getID();}
         	
 			else {
-				return "Invalid";
+				model.put("errorMessage", "Password incorrect");
+				return "login";
 			}
     }
 		catch(UserNotFoundException ex) {
-			return "Nouser";
+			model.put("errorMessage", "Username does not exist");
+			return "login";
 		}
 }
-	 @PostMapping("/register")
+	 @PostMapping("/process")
 	    public String register(ModelMap model, 
 	    		@RequestParam String username, 
 	    		@RequestParam String password,
 	    		@RequestParam String email) {
-		User user = new User(1,"test","test","test");
-		//int id = 0;
-		//user.setId(id);
-		//user.setUserName(username);
-		//user.setPassword(password);
-		//user.setEmail(email);
-		model.addAttribute("user",user);
-		 return "redirect:/usersuccess";
+		 User user = new User();
+		user= userService.AddUser(username,password,email);
+	
+		if(user!=null) {
+			model.put("successMessage", "The user was successfully created");
+			return "register";
+		}
+		else {
+			model.put("errorMessage", "This username is already being used");
+			return "register";
+		}
 	    }
-	 
-	 @GetMapping("/usersuccess")
-	    public String showConfirmPage(ModelMap model,@ModelAttribute("user") User user){ 
-	       // userService.AddUser(user);
-		 model.addAttribute(user);
-	    	return "usersuccess";
-	    }
+	
 	 
 }

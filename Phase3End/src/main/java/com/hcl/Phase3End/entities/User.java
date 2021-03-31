@@ -13,22 +13,22 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity  
-//@Table(name= "users.accounts",uniqueConstraints={@UniqueConstraint(columnNames={"username"})})
+@Table(name= "users",uniqueConstraints={@UniqueConstraint(columnNames={"username"})})
 
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-    @Id //@GeneratedValue(strategy = GenerationType.IDENTITY)   
-  //  @Column(name = "id")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)   
+   @Column(name = "id")
 
-    private int id;
-  //  @Column(name = "username")
+    private Integer id;
+   @Column(name = "username")
     private String username;
     
- //   @Column(name = "pass")
+    @Column(name = "password")
     private String password;
     
-  //  @Column(name = "email")
+    @Column(name = "email")
     private String email;
 
    
@@ -37,7 +37,7 @@ public class User implements Serializable {
         
     }
     
-    public User(int id, String username, String password, String email) {
+    public User(Integer id, String username, String password, String email) {
             this.id = id;
             this.username = username;
             this.password = password;
@@ -46,17 +46,18 @@ public class User implements Serializable {
     }
     
 
-    public long getID() {return this.id; }
+    public Integer getID() {return this.id; }
     public String getUserName() { return this.username;}
     public String getPassword() { return this.password;}
     public String getEmail() { return this.email;}
     
     
-    public void setId(int id) {
+    public void setId(Integer id) {
 		this.id = id;
 	}
     public void setUserName(String username) { this.username = username;}
     public void setPassword(String password) { this.password = password;}
     public void setEmail(String email) { this.email = email;}
+    
     
 }

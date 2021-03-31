@@ -24,7 +24,7 @@
  <input type="submit" value="Submit"><br>
 </form>
 
-
+<h1><font color="red">${errorMessage}</font></h1>
 </div>
 </body>
 </html>

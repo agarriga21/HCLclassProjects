@@ -2,6 +2,8 @@ package com.hcl.Phase3End.entities;
 
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,15 +11,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
-@Entity // This tells Hibernate to make a table out of this class
+@Entity
+@Table(name= "tasks")
 public class Task implements Serializable {
 	private static final long serialVersionUID = 2L;
-  
-	@Id
-	 @Column(name = "username")
-    private String username;
+	 
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)   
+	   @Column(name = "id")
+    private int id;
 
+	@Column(name = "userid")
+    private int userid;
+	
 	 @Column(name = "taskname")
     private String taskName;
 
@@ -25,20 +33,20 @@ public class Task implements Serializable {
     private String description;
 
 	 @Column(name = "start")
-    private Date start;
+    private String start;
     
 	 @Column(name = "end")
-    private Date end;
+    private String end;
     
 	 @Column(name = "severity")
     private String severity;
 
-	public String getUsername() {
-		return username;
+	public int getId() {
+		return id;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getTaskName() {
@@ -57,19 +65,22 @@ public class Task implements Serializable {
 		this.description = description;
 	}
 
-	public Date getStart() {
+	public String getStart() {
+		
 		return start;
 	}
 
-	public void setStart(Date start) {
+	public void setStart(String start) {
+		
 		this.start = start;
 	}
 
-	public Date getEnd() {
+	public String getEnd() {
+		
 		return end;
 	}
 
-	public void setEnd(Date end) {
+	public void setEnd(String end) {
 		this.end = end;
 	}
 
@@ -79,6 +90,14 @@ public class Task implements Serializable {
 
 	public void setSeverity(String severity) {
 		this.severity = severity;
+	}
+
+	public int getUserid() {
+		return userid;
+	}
+
+	public void setUserid(int userid) {
+		this.userid = userid;
 	}
     
 

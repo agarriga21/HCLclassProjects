@@ -13,26 +13,27 @@
  <div align="center">
 <h2>User Registration</h2>
 <h3>Please fill in your information</h3>
-<form:form method="post" action="/usersuccess" modelAttribute = "user">
-  <form:hidden path="Id"/>
-    <form:label path="username">Username</form:label><br>
-  <form:input path="name"/><br>
+<form action="/process" method="post">
+
+    <label for="username">Username</label><br>
+  <input type="text" id="username" name="username" required><br>
   <h6> </h6>
-  <form:label path="password">Password</form:label><br>
-  <form:input path="password"/><br>
+  <label for="password">Password</label><br>
+  <input type="password" id="password" name="password" required><br>
    <h6> </h6>
-   <form:label path="email">email</form:label><br>
-  <form:input path="email"/><br>
-   <h6> </h6>
+ <label for="email">Email</label><br>
+  <input type="email" id="email" name="email" required><br>
+  <h6> </h6>
+   
  <input type="submit" value="Submit">
- </form:form>
+ </form>
  <h6> </h6>
  <a href="/">
       <input type="submit" value="Back"/>
      </a>
 
-
-
+<h1><font color="red">${errorMessage}</font></h1>
+<h1><font color="green">${successMessage}</font></h1>
 </div>
 </body>
 </html>

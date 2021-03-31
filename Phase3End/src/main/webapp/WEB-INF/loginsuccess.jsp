@@ -10,18 +10,13 @@
 </head>
 <body>
 <div align="center">
-<h2>User Successfully Edited</h2>
-<h3>New User Information:</h3>
-   
-   	<h5>ID: test</h5>
-      <h5>Username: ${user.username}</h5>
-       <h5>Email: ${user.email}</h5>
-        <h5>Password: ${user.password}</h5>
-   
+<h2>Successfully Logged in!</h2>
 
-<a href="/">
-      <input type="submit" value="Logout"/>
-     </a>
+   
+<form:form modelAttribute="id" method="post" action="tasks/${id}">
+   <h6> </h6>
+      <input type="submit" value="Task List"/>
+     </form:form>
 
 </div></body>
 </html>
