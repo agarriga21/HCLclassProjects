@@ -21,11 +21,11 @@ table, th, td {
 </style>
 </head>
 <body>
-<header>
+  <header>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <!-- Brand -->
       <a class="navbar-brand" href="#">
-        <img src="" alt="Logo" style="width:60px;">
+        <img src="images/whiteGuitar.jpg" alt="Logo" style="width:60px;">
       </a>
     
       <!-- Links -->
@@ -34,10 +34,21 @@ table, th, td {
           <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/list">List</a>
+          <a class="nav-link" href="/list">Products</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="">About</a>
+          </li>
        </ul>
+       <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="">Register</a>
+        </li>
       
+       </ul>
     </nav>
   </header>
   <div align="center">
@@ -55,81 +66,141 @@ table, th, td {
         <artifactId>tomcat-jasper</artifactId>
         <version>9.0.19</version>
     </dependency>-->
-<table>
-<tr>
-  <th>Genre ID</th>
-  <th>Name</th>
-  
-</tr>
+
+    <style>
+      .container-fluid
+    {
+      
+      border-top:1px solid rgb(0, 0, 0);
+      border-bottom:1px solid rgb(0, 0, 0);
+     width: 1200px;
+      border-left:1px solid rgb(0, 0, 0) ;
+      border-right:1px solid rgb(0, 0, 0) ;
+    }
+    
+      .col
+    {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      border-left:1px solid rgb(0, 0, 0) ;
+      border-right:1px solid rgb(0, 0, 0) ;
+      
+    }
+    .table
+    {
+      padding-bottom: 50px;
+      
+      
+    }
+    </style>
+    
+   
+    <div class="table">
+    <div class="container-fluid" align="center">
+      <div class="row">
+        <div class="col"><h5>Picture</h5>
+        </div>
+        <div class="col"><h5>Genre ID</h5></div>
+        <div class="col"><h5>Name</h5></div>
+      </div>
+    </div>
+   
    <c:forEach items="${genres}" var="genres"> 
-   
-        
-        <tr>
-            <td>${genres.id}</td>
-            <td>${genres.name}</td>
-           
-        </tr>
+    <div class="container-fluid" align="center">
+      <div class="row">
+        <div class="col">
+          <img src="images/rock.jpg" alt="rock" width="150" height="150">
+        </div>
+        <div class="col">${genres.id}</div>
+        <div class="col">${genres.name}</div>
+      </div>
+    </div>
     </c:forEach>
-</table>
+  </div>
 
     
 
-<h6> </h6>
-<table>
-<tr>
-  <th>Album ID</th>
-  <th>Name</th>
-  <th>Artist</th>
-  <th>Price</th>
-  <th>Release Date</th>
-  <th>Genre ID</th>
-</tr>
-   <c:forEach items="${albums}" var="albums"> 
-   
-        
-        <tr>
-            <td>${albums.id}</td>
-            <td>${albums.name}</td>
-           <td>${albums.artist}</td>
-            <td>${albums.price}</td>
-            <td>${albums.release_date}</td>
-            <td>${albums.genre_id}</td>
-        </tr>
-    </c:forEach>
-</table>
 
-    
+</div>
+<div class="table">
+<div class="container-fluid" align="center">
+  <div class="row">
+    <div class="col"><h5>Picture</h5></div>
+    <div class="col"><h5>Album ID</h5></div>
+    <div class="col"><h5>Name</h5></div>
+    <div class="col"><h5>Artist</h5></div>
+    <div class="col"><h5>Price</h5></div>
+    <div class="col"><h5>Release Date</h5></div>
+    <div class="col"><h5>Genre ID</h5></div>
+    <div class="col"><h5>Buy Now</h5></div>
+  </div>
+</div>
 
-<h6> </h6>
-<table>
-<tr>
- <th>Music ID</th>
-  <th>Name</th>
-  <th>Price</th>
-  <th>Track Number</th>
-  <th>Album ID</th>
+<c:forEach items="${albums}" var="albums"> 
+<div class="container-fluid" align="center">
+  <div class="row">
+    <div class="col">
+      <img src="images/album.jpg" alt="album" width="100" height="100">
+    </div>
+    <div class="col">${albums.id}</div>
+    <div class="col">${albums.name}</div>
+    <div class="col">${albums.artist}</div>
+    <div class="col">${albums.price}</div>
+    <div class="col">${albums.release_date}</div>
+    <div class="col">${albums.genre_id}</div>
+    <div class="col">
+      <a href="">
+        <input type="submit" value="Add to Cart"/>
+       </a><br>
+       <p>Would need some function on click</p>
+    </div>
   
-</tr>
-   <c:forEach items="${music}" var="music"> 
-   
-        
-        <tr>
-            <td>${music.id}</td>
-            <td>${music.name}</td>
-           <td>${music.price}</td>
-            <td>${music.track_number}</td>
-            <td>${music.album_id}</td>
-            
-        </tr>
-    </c:forEach>
-</table>
+  </div>
+</div>
+</c:forEach>
+</div>
+  
+
 
     
 
-<h6> </h6>
- <a href="/">
-      <input type="submit" value="Home"/>
-     </a>
-     </div>
+<div class="table">
+  <div class="container-fluid" align="center">
+    <div class="row">
+      <div class="col"><h5>Picture</h5></div>
+      <div class="col"><h5>Music ID</h5></div>
+      <div class="col"><h5>Name</h5></div>
+      <div class="col"><h5>Price</h5></div>
+      <div class="col"><h5>Track Number</h5></div>
+      <div class="col"><h5>Album ID</h5></div>
+      <div class="col"><h5>Buy Now</h5></div>
+    </div>
+  </div>
+  
+  <c:forEach items="${music}" var="music"> 
+  <div class="container-fluid" align="center">
+    <div class="row">
+      <div class="col">
+        <img src="images/song.jpg" alt="song" width="100" height="100">
+      </div>
+      <div class="col">${music.id}</div>
+      <div class="col">${music.name}</div>
+      <div class="col">${music.price}</div>
+      <div class="col">${music.track_number}</div>
+      <div class="col">${music.album_id}</div>
+      <div class="col">
+        <a href="">
+          <input type="submit" value="Add to Cart"/>
+         </a><br>
+         <p>Would need some function on click</p>
+      </div>
+    
+    </div>
+  </div>
+  </c:forEach>
+  </div>
+
+ 
+    
 </body>
 </html>
