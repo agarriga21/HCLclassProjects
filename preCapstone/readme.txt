@@ -1,3 +1,26 @@
+Update 4/8/21 1:00 PM CST - Alexander Garriga
+
+-Added the details page for specific album accessible through the user product view "/readuser"
+For this page, I added another controller to AlbumGenreController.java as follows:
+
+@GetMapping("/details")
+    public String showDetailsPage(ModelMap model, @RequestParam int id){ 
+      AlbumGenre album= service.find(id);
+    	model.put("album",album);
+    	return "details";
+    }
+
+Basically the same as the edit controller just instead for the details page.
+
+- Changed the three search bars on user products page to one search bar with a drop down menu to choose what the user wants to search.
+
+- Upgraded all of the pages with a backround and colors to make it look a lot better.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 Update 4/7/21 12:00 CST - Alexander Garriga
 
 I was able to connect all of Bens functions to my jsp's.

@@ -1,8 +1,7 @@
 package com.web.store.music_store.controller;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +23,8 @@ public class AlbumGenreController {
 	
 	@PostMapping(value="/create")
 	public String createAlbum(ModelMap model, @RequestParam String name, @RequestParam String artist, @RequestParam String price, 
-			@RequestParam String release_date, @RequestParam String genre_name) throws ParseException {
-		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(release_date);
-		service.create(new AlbumGenre(name, artist, price, date, genre_name));
+			@RequestParam Date release_date, @RequestParam String genre_name) throws ParseException {
+		service.create(new AlbumGenre(name, artist, price, release_date, genre_name));
 		model.put("message", "Album has been added");
 		return "redirect:/readadmin";
 	}
@@ -45,9 +43,8 @@ public class AlbumGenreController {
 	
 	@PostMapping(value="/update")
 	public String updateAlbum(ModelMap model, @RequestParam int id, @RequestParam String name, @RequestParam String artist, @RequestParam String price, 
-			@RequestParam String release_date, @RequestParam String genre_name) throws ParseException {
-		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(release_date);
-		service.update(id, name, artist, price, date, genre_name);
+			@RequestParam Date release_date, @RequestParam String genre_name) throws ParseException {
+		service.update(id, name, artist, price, release_date, genre_name);
 		model.put("message", "Album has been updated");
 		return "redirect:/readadmin";
 	}
@@ -75,5 +72,10 @@ public class AlbumGenreController {
     	model.addAttribute("album",album);
     	return "edit";
     }
-	
+	@GetMapping("/details")
+    public String showDetailsPage(ModelMap model, @RequestParam int id){ 
+      AlbumGenre album= service.find(id);
+    	model.put("album",album);
+    	return "details";
+    }
 }
